@@ -20,8 +20,6 @@ cache:
   - $HOME/.m2
   - $HOME/CACHE
 deploy:
-  provider: s3
-  region: eu-west-1
   true:
     branch:
     - master
@@ -32,12 +30,14 @@ deploy:
     - 2.0
     jdk: oraclejdk8
     repo: Graylog2/graylog2-server
-  bucket: graylog2-builds
-  local-dir: target/assembly
+  access_key_id: AKIAIGYGO43W76PZMMVA
+  provider: s3
   skip_cleanup: true
+  local-dir: target/assembly
+  bucket: graylog2-builds
   secret_access_key:
     secure: cYHsMgnAI08sz9G1Qb7ku2HoTaSn/OBBmjBzyYswX0/Kvb2asQcEGZGOEfYNTGOwdN6DP7p3axi5o+FPw2MLGGpBVz3tAtwYWTbzJR8kCEuGwb8N6abpdkGIn4AfifQ+vbn8zJrIB6HfGGRpDM9QnEjJFtpJO+2SjODzbZzkymE=
-  access_key_id: AKIAIGYGO43W76PZMMVA
+  region: eu-west-1
 dist: trusty
 env:
   global:
